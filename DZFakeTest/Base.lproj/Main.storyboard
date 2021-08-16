@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="ReZ-6k-Th4">
-                                <rect key="frame" x="73" y="336" width="268" height="224"/>
+                                <rect key="frame" x="73" y="295" width="268" height="306"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="User" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FGw-Da-j9I">
                                         <rect key="frame" x="0.0" y="0.0" width="268" height="34"/>
@@ -55,6 +55,12 @@
                                             </button>
                                         </subviews>
                                     </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0r6-ur-oIp">
+                                        <rect key="frame" x="0.0" y="256" width="268" height="50"/>
+                                        <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="25"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -68,6 +74,7 @@
                     <connections>
                         <outlet property="loginTF" destination="FGw-Da-j9I" id="WYI-F6-FSb"/>
                         <outlet property="passwordTF" destination="aDu-C6-DjH" id="Kaz-YH-RVI"/>
+                        <outlet property="resultLabel" destination="0r6-ur-oIp" id="9qa-Ov-L6m"/>
                         <segue destination="NgY-hU-Jje" kind="show" identifier="detailSegue" id="65Y-7q-Akl"/>
                     </connections>
                 </viewController>
@@ -126,9 +133,11 @@
                     <navigationItem key="navigationItem" id="F4b-At-8Wd"/>
                     <connections>
                         <outlet property="label" destination="G0J-AZ-C6O" id="55X-9D-Tvb"/>
+                        <segue destination="O73-UC-Xcp" kind="unwind" identifier="unwindSegue" unwindAction="unwindToMainScreen:" id="kXf-5T-dem"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NaH-kj-acO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="O73-UC-Xcp" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="913.04347826086962" y="79.6875"/>
         </scene>

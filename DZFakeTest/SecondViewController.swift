@@ -16,10 +16,11 @@ class SecondViewController: UIViewController {
         super.viewDidLoad()
         
         guard let login = login else { return }
-        label.text = "Hello, \(login)"
+        label.text = "Hello, \(login)!"
     }
     
     @IBAction func cancelTapped(_ sender: UIButton) {
+        performSegue(withIdentifier: "unwindSegue", sender: nil)
     }
     
 }
