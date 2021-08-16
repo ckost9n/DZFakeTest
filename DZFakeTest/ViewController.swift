@@ -18,6 +18,12 @@ class ViewController: UIViewController {
         
     }
     @IBAction func loginTapped(_ sender: UIButton) {
+        if loginTF.text == "Kostya", passwordTF.text == "123" {
+            performSegue(withIdentifier: "detailSegue", sender: nil)
+        } else {
+            return
+        }
+        
     }
     
     @IBAction func helpUserTapped(_ sender: UIButton) {
@@ -29,6 +35,11 @@ class ViewController: UIViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
         
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let secondViewController = segue.destination as? SecondViewController else { return }
+        secondViewController.login = loginTF.text
     }
 
 }

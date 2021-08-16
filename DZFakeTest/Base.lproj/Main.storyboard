@@ -34,7 +34,6 @@
                                         <state key="normal" title="Enter"/>
                                         <connections>
                                             <action selector="loginTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yDF-YE-Wzy"/>
-                                            <segue destination="NgY-hU-Jje" kind="show" id="3Bl-Sp-Egj"/>
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="hza-ni-YlI">
@@ -69,6 +68,7 @@
                     <connections>
                         <outlet property="loginTF" destination="FGw-Da-j9I" id="WYI-F6-FSb"/>
                         <outlet property="passwordTF" destination="aDu-C6-DjH" id="Kaz-YH-RVI"/>
+                        <segue destination="NgY-hU-Jje" kind="show" identifier="detailSegue" id="65Y-7q-Akl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -83,7 +83,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome, User!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G0J-AZ-C6O">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome, User!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G0J-AZ-C6O">
                                 <rect key="frame" x="76.5" y="124" width="261" height="38.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="261" id="BZ9-M1-k7x"/>
