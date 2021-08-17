@@ -33,7 +33,7 @@
                                         <rect key="frame" x="0.0" y="132" width="268" height="30"/>
                                         <state key="normal" title="Enter"/>
                                         <connections>
-                                            <action selector="loginTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yDF-YE-Wzy"/>
+                                            <action selector="loginTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="tuX-xn-ZRf"/>
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="hza-ni-YlI">

@@ -13,16 +13,18 @@ class ViewController: UIViewController {
     @IBOutlet weak var passwordTF: UITextField!
     @IBOutlet weak var resultLabel: UILabel!
     
+    let userName = "Kostya"
+    let userPassword = "123"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
     }
-    @IBAction func loginTapped(_ sender: UIButton) {
-        if loginTF.text == "Kostya", passwordTF.text == "123" {
+    @IBAction func loginTapped() {
+        if loginTF.text == userName, passwordTF.text == userPassword {
             performSegue(withIdentifier: "detailSegue", sender: nil)
         } else {
-            showAlert(title: "Invalid login or password", message: "Please, enter correct login and password!")
+            showAlert(title: "Invalid login or password", message: "Please, enter correct login and password!", textField: passwordTF)
         }
         
     }
@@ -31,32 +33,51 @@ class ViewController: UIViewController {
         guard unwindSegue.identifier == "unwindSegue" else { return }
         guard let sourceViewController = unwindSegue.source as? SecondViewController else { return }
         resultLabel.text = sourceViewController.label.text
+        loginTF.text = nil
+        passwordTF.text = nil
     }
     
     @IBAction func helpUserTapped(_ sender: UIButton) {
-        showAlert(title: "Opps", message: "Administrator is Kostya")
+        showAlert(title: "Opps", message: "Administrator is \(userName)")
     }
     
     @IBAction func helpPasswordTapped(_ sender: UIButton) {
-        showAlert(title: "Opps", message: "Try to enter 123")
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
-        
+        showAlert(title: "Opps", message: "Try to enter \(userPassword)")
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let secondViewController = segue.destination as? SecondViewController else { return }
+        guard segue.identifier == "detailSegue" else { return }
+        let secondViewController = segue.destination as! SecondViewController
         secondViewController.login = loginTF.text
+//        guard let secondViewController = segue.destination as? SecondViewController else { return }
+//        secondViewController.login = loginTF.text
     }
     
-    func showAlert(title: String, message: String) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super .touchesBegan(touches, with: event)
+        view.endEditing(true)
+    }
+    
+    func showAlert(title: String, message: String, textField: UITextField? = nil) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        alert.addAction(UIAlertAction(title: "OK", style: .default) { _ in
+            textField?.text = nil
+        })
         
         present(alert, animated: true)
     }
 
 }
 
+//extension ViewController: UITextFieldDelegate {
+//    
+//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+//        if textField == loginTF {
+//            loginTF.resignFirstResponder()
+//            passwordTF.becomeFirstResponder()
+//        } else {
+//            loginTapped()
+//        }
+//        return true
+//    }
+//}
